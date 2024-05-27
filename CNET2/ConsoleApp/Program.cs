@@ -1,26 +1,27 @@
-﻿
-using ConsoleApp;
+﻿using ConsoleApp;
+using System.Reflection.Emit;
 
 
+string[] jmena = ["Lukáš", "Karel", "Tomáš", "Martin",
+                "Radim", "Jakub", "Sofián"];
 
-var uppercase = "hello world".ToUpper();
-Console.WriteLine(uppercase);
+List<string> jmena_list = ["Lukáš", "Karel", "Tomáš", 
+            "Martin", "Radim", "Jakub", "Sofián"];
 
-uppercase.ToLower();
 
-Animal zv = new Animal("Mourek", Species.CAT);
-zv.Rename("Kočka");
+List<string> jmena_list2 = new() {"Lukáš", "Karel", "Tomáš",
+            "Martin", "Radim", "Jakub", "Sofián"};
 
-var isempty = String.IsNullOrEmpty(uppercase);
+foreach(string jmeno in jmena_list)
+{
+    Console.WriteLine(jmeno);
+}
 
-int x = 0;
-
-bool isneg = int.IsNegative(x);
-
-int num = int.Parse("15");
-
-var je_prestupny = DateTime.IsLeapYear(2024);
-
+//for(int i = 0; i < jmena.Length; i++)
+//{
+//    var jmeno = jmena[i];
+//    Console.WriteLine(jmeno);
+//}
 
 
 
