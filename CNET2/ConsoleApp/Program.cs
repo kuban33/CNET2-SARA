@@ -1,8 +1,15 @@
 ﻿using ConsoleApp;
 using System.Reflection.Emit;
 using System.Linq;
+using ConsoleApp.SchoolModel;
 
-LINQMethods.ukol();
+Person osoba = new Person("Typek", DateOnly.Parse("1990-01-01"));
+Console.WriteLine(osoba);
+
+Student s1 = new Student("Lucie", new DateOnly(2008, 8, 30), "Oktava A");
+Console.WriteLine(s1);
+
+//LINQMethods.ukol();
 
 //DictionaryMethods.DictionaryJmena();
 
