@@ -30,6 +30,11 @@ public class Animal
         return $"zvíře z ToString, jméno: {Name}, druh: {Species}";
     }
 
+    public void Rename(string newname)
+    {
+        Name = newname;
+    }
+
 }
 
 public enum Species

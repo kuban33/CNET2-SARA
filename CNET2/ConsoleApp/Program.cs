@@ -1,41 +1,25 @@
-﻿// třída pro zvíře
-//  * druh
-//  * jméno
-// vytvořit několik instancí
-// vypsat do konzole
-
+﻿
 using ConsoleApp;
 
-Animal zvire1 = new Animal("Mourek", Species.CAT);
-Animal zvire2 = new Animal();
-//Animal zvire3 = AnimalLibrary.Get();
-
-zvire2.Name = "Alík";
-zvire2.Species = Species.DOG;
 
 
-Animal zvire3 = new("Mourek", Species.CAT);
+var uppercase = "hello world".ToUpper();
+Console.WriteLine(uppercase);
 
-var zvire4 = new Animal();
-//zvire4 = "hello"; - chyba
+uppercase.ToLower();
 
-// var zvire5 = new(); - nedava smysl
+Animal zv = new Animal("Mourek", Species.CAT);
+zv.Rename("Kočka");
 
-var zvire5 = new Animal()
-{
-    Name = "Rohlík",
-    Species = Species.DOG,
-};
+var isempty = String.IsNullOrEmpty(uppercase);
 
+int x = 0;
 
-//vypsat do konzole
+bool isneg = int.IsNegative(x);
 
-Console.WriteLine($"zvíře, jméno: {zvire1.Name}, druh: {zvire1.Species}");
+int num = int.Parse("15");
 
-Console.WriteLine(zvire2);
-
-
-
+var je_prestupny = DateTime.IsLeapYear(2024);
 
 
 
