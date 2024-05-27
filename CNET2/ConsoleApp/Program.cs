@@ -1,10 +1,8 @@
 ﻿using ConsoleApp;
 using System.Reflection.Emit;
+using System.Linq;
 
-
-List<string> jmena_list = ["Lukas", "Karel", "Tomas"];
-
-Console.WriteLine(String.Join(", ",jmena_list));
+LINQMethods.ukol();
 
 //DictionaryMethods.DictionaryJmena();
 
