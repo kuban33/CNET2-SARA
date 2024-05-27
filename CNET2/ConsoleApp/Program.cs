@@ -2,46 +2,11 @@
 using System.Reflection.Emit;
 
 
-string[] jmena = ["Lukáš", "Karel", "Tomáš", "Martin",
-                "Radim", "Jakub", "Sofián"];
+List<string> jmena_list = ["Lukas", "Karel", "Tomas"];
 
-List<string> jmena_list = ["Lukáš", "Karel", "Tomáš", 
-            "Martin", "Radim", "Jakub", "Sofián"];
+Console.WriteLine(String.Join(", ",jmena_list));
 
-
-List<string> jmena_list2 = new() {"Lukáš", "Karel", "Tomáš",
-            "Martin", "Radim", "Jakub", "Sofián"};
-
-//foreach(string jmeno in jmena_list)
-//{
-//    Console.WriteLine(jmeno);
-//}
-
-Dictionary<string, string> jmenaOsloveni = new Dictionary<string, string>()
-{
-    { "Lukas", "Lukasi" },
-    { "Karel", "Karle" },
-    { "Tomas", "Tomasi" },
-};
-
-Console.WriteLine("Ahoj, zadej své jméno:");
-
-string jmeno = Console.ReadLine();
-
-if (jmenaOsloveni.ContainsKey(jmeno))
-{
-    Console.WriteLine($"Ahoj {jmenaOsloveni[jmeno]}.");
-}
-else
-{
-    Console.WriteLine("neznam");
-}
-
-//for(int i = 0; i < jmena.Length; i++)
-//{
-//    var jmeno = jmena[i];
-//    Console.WriteLine(jmeno);
-//}
+//DictionaryMethods.DictionaryJmena();
 
 
 
