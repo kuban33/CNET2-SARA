@@ -21,9 +21,18 @@ var zvire4 = new Animal();
 
 // var zvire5 = new(); - nedava smysl
 
+var zvire5 = new Animal()
+{
+    Name = "Rohlík",
+    Species = Species.DOG,
+};
 
 
+//vypsat do konzole
 
+Console.WriteLine($"zvíře, jméno: {zvire1.Name}, druh: {zvire1.Species}");
+
+Console.WriteLine(zvire2);
 
 
 

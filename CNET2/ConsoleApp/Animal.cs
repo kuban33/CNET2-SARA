@@ -25,6 +25,11 @@ public class Animal
 
     public Species Species { get; set; }
 
+    public override string ToString()
+    {
+        return $"zvíře z ToString, jméno: {Name}, druh: {Species}";
+    }
+
 }
 
 public enum Species
