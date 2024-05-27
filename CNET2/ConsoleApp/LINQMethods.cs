@@ -84,6 +84,33 @@ namespace ConsoleApp
             Console.WriteLine($"sum_skipped: {String.Join(", ", sum_skipped)}");
 
 
+            //pocet pismen
+            var fruits = new[] { "aPPLE", "BlUeBeRrY", "cHeRry", "RaspbeRry" };
+            var letter_count = fruits.Select(f => f.Length).Sum();
+            Console.WriteLine($"dohromady pismen: {letter_count}");
+
+            //lowercase
+            var fruits_lower = fruits.Select(f => f.ToLower());
+            Console.WriteLine($"fruits_lower: {String.Join(", ", fruits_lower)}");
+
+            //anonymni typ
+            //upper+lower
+            var fruits_combo = fruits.Select(x => new { Uppercase = x.ToUpper(), Lowercase = x.ToLower() });
+            Console.WriteLine($"fruits_combo: {String.Join(", ", fruits_combo)}");
+
+            var sweet_cats = fruits.Select(fruit => new Animal(fruit, Species.CAT));
+
+
+
+            var numbers2 = new[] { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var strings = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            // vypište čísla v poli numbers jako slova
+
+            var num_strings = numbers2.Select(n => strings[n]);
+            Console.WriteLine($"num_strings: {String.Join(", ", num_strings)}");
+
+
         }
+
     }
 }
