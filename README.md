@@ -1,4 +1,4 @@
-# Školení C# / .NET7
+# Školení C# / .NET8
 
 ## Visual Studio 2022 Community Edition - https://visualstudio.microsoft.com/vs/
 * při instalaci v jazykových sadách vyberte i English jestli máte české windows (jinak budete mít VS česky a to nechcete)
