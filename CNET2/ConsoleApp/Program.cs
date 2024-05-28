@@ -16,4 +16,9 @@ if (answer.ToLower() == "y")
 {
     context.People.AddRange(dataset);
     context.SaveChanges();
+    Console.WriteLine("done");
+}
+else
+{
+    Console.WriteLine("skipping");
 }

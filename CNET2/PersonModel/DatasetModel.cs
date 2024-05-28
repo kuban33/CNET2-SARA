@@ -7,8 +7,8 @@ public class Person
     public string LastName { get; set; }
     public string Email { get; set; }
     public DateTime DateOfBirth { get; set; }
-    public Address Address { get; set; }
-    public List<Contract> Contracts { get; set; }
+    public Address? Address { get; set; }
+    public ICollection<Contract> Contracts { get; set; } = new HashSet<Contract>();
 
     public override string ToString()
     => $"{FirstName} {LastName} {Email} {DateOfBirth.ToString("yyyyMMdd")}";
