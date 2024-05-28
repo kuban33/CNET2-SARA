@@ -12,11 +12,17 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
+app.MapGet("/", () => "Hello" + Environment.NewLine +
+"/person/{id}" + Environment.NewLine +
+"/person/searchemail/{searchstr}");
+
 app.MapGet("/person/{id}", (int id, PeopleContext db) =>
                             db.People.Where(x => x.Id == id).Single());
 
-app.MapGet("/emailsearch/{searchstr}", (string searchstr, PeopleContext db) =>
-                            db.People.Where(x => x.Email.Contains(searchstr)));
+app.MapGet("/person/searchemail/{searchstr}", (string searchstr, PeopleContext db) =>
+    db.People.Where(osoba => osoba.Email.ToLower().Contains(searchstr.ToLower()))
+);
+                            
 
 app.Run();
 
