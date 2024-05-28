@@ -1,4 +1,5 @@
 using PersonData;
+using PersonModel;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,7 +23,23 @@ app.MapGet("/person/{id}", (int id, PeopleContext db) =>
 app.MapGet("/person/searchemail/{searchstr}", (string searchstr, PeopleContext db) =>
     db.People.Where(osoba => osoba.Email.ToLower().Contains(searchstr.ToLower()))
 );
-                            
+
+app.MapPost("/person/create", (Person person, PeopleContext db) =>
+{
+    db.People.Add(person);
+    db.SaveChanges();
+    return person;
+});
+
+app.MapPut("/person/edit", (Person person, PeopleContext db) =>
+{
+    var person_db = db.People.Where(x => x.Id == person.Id).Single();
+    //person_db.FirstName = person.FirstName;
+
+    db.Entry<Person>(person_db).CurrentValues.SetValues(person);
+    db.SaveChanges();
+    return person_db;
+});
 
 app.Run();
 
