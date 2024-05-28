@@ -1,63 +1,19 @@
-﻿//using ConsoleApp;
-//using System.Reflection.Emit;
-//using System.Linq;
-//using ConsoleApp.SchoolModel;
+﻿using PersonData;
 using PersonModel;
 
 
-var data = DatasetAccess.LoadData(@"C:\Users\Virtualpro\source\repos\CNET2-SARA\data2024.json");
+var dataset = DatasetAccess.LoadData(@"C:\Users\Virtualpro\source\repos\CNET2-SARA\data2024.json");
 
-int pocet_osob = data.Count();
+var context = new PeopleContext();
 
-Console.WriteLine(pocet_osob);
+var cnt = context.People.Count();
 
-var person = data.First();
-Console.WriteLine(person.Email);
+Console.WriteLine($"people cnt: {cnt}");
 
-var take2 = data.Take(1);
-foreach (var item in take2)
-    Console.WriteLine(item.Email);
-
-//var p2 = data.Where(person =>  person.Email == "lukaskubicek@gmail.com")
-//            .FirstOrDefault();
-
-var p2 = data.Where(person => person.Email.Contains("gmail.com"))
-            .FirstOrDefault();
-
-
-if (p2 != null)
+Console.WriteLine("Naplnit db? (y/n)");
+var answer = Console.ReadLine();
+if (answer.ToLower() == "y")
 {
-    Console.WriteLine(p2.Email);
-}
-else
-{
-    Console.WriteLine("p2 is null");
-}
-
-//data.Where(x => x.Email == "nekdo@domena.cz").Single();
-data.Where(x => x.Id == 5).SingleOrDefault();
-
- var g = data.GroupBy(x => x.LastName);
-
-foreach (var skupina in g)
-{
-    var lastname = skupina.Key;
-    var pocet_lidi_ve_skupine = skupina.Count();
-
-    //Console.WriteLine($"{lastname}: {pocet_lidi_ve_skupine}");
-}
-
-//ukol nejmladsi
-
-//var nejmladsi = data.Where(x => x.DateOfBirth == data.Max(x => x.DateOfBirth)).ToArray();
-var nejmaldsi = data.OrderByDescending(x => x.DateOfBirth).First();
-Console.WriteLine(nejmaldsi);
-
-var mesta_populace = data.GroupBy(x => x.Address.City).OrderByDescending(x => x.Count());
-foreach (var skupina in mesta_populace)
-{
-    var mesto = skupina.Key;
-    var pocet = skupina.Count();
-
-    Console.WriteLine($"{mesto}: {pocet}");
+    context.People.AddRange(dataset);
+    context.SaveChanges();
 }

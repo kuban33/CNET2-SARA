@@ -28,7 +28,20 @@ public class Contract
     public string Name { get; set; }
     public string PlateNumber { get; set; }
     public DateTime Signed { get; set; }
-    public int CarBrand { get; set; }
+    public CarBrand CarBrand { get; set; }
     public string HexColor { get; set; }
 }
 
+public enum CarBrand
+{
+    Skoda,
+    Volkswagen,
+    MercedesBenz,
+    BMW,
+    Citroen,
+    Peugeot,
+    Fiat,
+    Ford,
+    Toyota,
+    Renault,
+}

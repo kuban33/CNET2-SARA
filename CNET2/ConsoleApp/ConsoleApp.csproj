@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PersonData\PersonData.csproj" />
     <ProjectReference Include="..\PersonModel\PersonModel.csproj" />
   </ItemGroup>
 
