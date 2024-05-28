@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonModel", "PersonModel\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonData", "PersonData\PersonData.csproj", "{ACCE669F-281F-4388-9C9A-EA2142CE92EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonAPI", "PersonAPI\PersonAPI.csproj", "{B430405E-1CEC-4977-8485-6731785DFFEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{ACCE669F-281F-4388-9C9A-EA2142CE92EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACCE669F-281F-4388-9C9A-EA2142CE92EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACCE669F-281F-4388-9C9A-EA2142CE92EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B430405E-1CEC-4977-8485-6731785DFFEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B430405E-1CEC-4977-8485-6731785DFFEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B430405E-1CEC-4977-8485-6731785DFFEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B430405E-1CEC-4977-8485-6731785DFFEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
