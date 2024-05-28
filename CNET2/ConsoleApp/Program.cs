@@ -16,7 +16,11 @@ Console.WriteLine("Zadej hledany email/cast: ");
 string searchstr = Console.ReadLine();
 
 List<Person>? ps  = await client.GetFromJsonAsync<List<Person>>($"{url}/person/searchemail/{searchstr}");
-if (ps != null)
+if (ps == null || ps.Count() == 0)
+{
+    Console.WriteLine("nenasel");
+}
+else
 {
     foreach (Person person in ps)
     {
