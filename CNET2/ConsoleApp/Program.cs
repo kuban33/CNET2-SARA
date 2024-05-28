@@ -1,55 +1,63 @@
-﻿using ConsoleApp;
-using System.Reflection.Emit;
-using System.Linq;
-using ConsoleApp.SchoolModel;
-
-Person osoba = new Person("Typek", DateOnly.Parse("1990-01-01"));
-Console.WriteLine(osoba);
-
-Student s1 = new Student("Lucie", new DateOnly(2008, 8, 30), "Oktava A");
-Console.WriteLine(s1);
-
-//LINQMethods.ukol();
-
-//DictionaryMethods.DictionaryJmena();
+﻿//using ConsoleApp;
+//using System.Reflection.Emit;
+//using System.Linq;
+//using ConsoleApp.SchoolModel;
+using PersonModel;
 
 
+var data = DatasetAccess.LoadData(@"C:\Users\Virtualpro\source\repos\CNET2-SARA\data2024.json");
+
+int pocet_osob = data.Count();
+
+Console.WriteLine(pocet_osob);
+
+var person = data.First();
+Console.WriteLine(person.Email);
+
+var take2 = data.Take(1);
+foreach (var item in take2)
+    Console.WriteLine(item.Email);
+
+//var p2 = data.Where(person =>  person.Email == "lukaskubicek@gmail.com")
+//            .FirstOrDefault();
+
+var p2 = data.Where(person => person.Email.Contains("gmail.com"))
+            .FirstOrDefault();
 
 
-// Lukáš, Karel, Tomáš, Martin, Radim, Jakub, Sofián
-// zeptat se na jméno a pozdravit
-// nebo říct že neznám
+if (p2 != null)
+{
+    Console.WriteLine(p2.Email);
+}
+else
+{
+    Console.WriteLine("p2 is null");
+}
 
-//Console.WriteLine("Ahoj, zadej své jméno:");
+//data.Where(x => x.Email == "nekdo@domena.cz").Single();
+data.Where(x => x.Id == 5).SingleOrDefault();
 
-//string jmeno = Console.ReadLine();
+ var g = data.GroupBy(x => x.LastName);
 
-//switch (jmeno)
-//{
-//    case "Lukáš":
-//        Console.WriteLine("Ahoj Lukáši");
-//        break;
-//    case "Karel":
-//        Console.WriteLine("Ahoj Karle");
-//        break;
-//    case "Tomáš":
-//        Console.WriteLine("Ahoj Tomáši");
-//        break;
-//    case "Martin":
-//        Console.WriteLine("Ahoj Martine");
-//        break;
-//    case "Radim":
-//        Console.WriteLine("Ahoj Radime");
-//        break;
-//    case "Jakub":
-//        Console.WriteLine("Ahoj Jakube");
-//        break;
-//    case "Sofián":
-//        Console.WriteLine("Ahoj Sofiáne");
-//        break;
-//    default:
-//        Console.WriteLine("Takové jméno neznám.");
-//        break;
-//}
+foreach (var skupina in g)
+{
+    var lastname = skupina.Key;
+    var pocet_lidi_ve_skupine = skupina.Count();
 
+    //Console.WriteLine($"{lastname}: {pocet_lidi_ve_skupine}");
+}
 
+//ukol nejmladsi
+
+//var nejmladsi = data.Where(x => x.DateOfBirth == data.Max(x => x.DateOfBirth)).ToArray();
+var nejmaldsi = data.OrderByDescending(x => x.DateOfBirth).First();
+Console.WriteLine(nejmaldsi);
+
+var mesta_populace = data.GroupBy(x => x.Address.City).OrderByDescending(x => x.Count());
+foreach (var skupina in mesta_populace)
+{
+    var mesto = skupina.Key;
+    var pocet = skupina.Count();
+
+    Console.WriteLine($"{mesto}: {pocet}");
+}
