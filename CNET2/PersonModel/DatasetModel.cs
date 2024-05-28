@@ -14,6 +14,16 @@ public class Person
     => $"{FirstName} {LastName} {Email} {DateOfBirth.ToString("yyyyMMdd")}";
 }
 
+public class LegalEntity
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int RegistrationNumber { get; set; }
+
+    public override string ToString()
+    => $"{Name} {RegistrationNumber}";
+}
+
 public class Address
 {
     public int Id { get; set; }

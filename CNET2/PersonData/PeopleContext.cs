@@ -11,6 +11,8 @@ public class PeopleContext : DbContext
 
     public DbSet<Contract> Contracts { get; set; }
 
+    public DbSet<LegalEntity> LegalEntities { get; set; }
+
     // The following configures EF to create a Sqlite database file in the
     // special "local" folder for your platform.
     protected override void OnConfiguring(DbContextOptionsBuilder options)

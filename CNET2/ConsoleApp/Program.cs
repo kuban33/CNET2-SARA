@@ -6,15 +6,36 @@ var url = "https://localhost:7036";
 
 var client = new HttpClient();
 
-int id = 228;
-Person? p = await client.GetFromJsonAsync<Person>($"{url}/person/{id}");
-Console.WriteLine(p);
+List<LegalEntity> legalEntities = new()
+{
+    new LegalEntity()
+    {
+        Id = 0,
+        Name = "Industry",
+        RegistrationNumber = 788776,
+    },
+    new LegalEntity()
+    {
+        Id = 0,
+        Name = "Enterprise",
+        RegistrationNumber = 832873,
+    },
+    new LegalEntity()
+    {
+        Id = 0,
+        Name = "Technology",
+        RegistrationNumber = 324321421,
+    },
+};
 
-p.Email = "novy@email.cz";
+foreach (var entity in legalEntities)
+{
+    var result = await client.PostAsJsonAsync<LegalEntity>($"{url}/legalentity/create", entity);
+    var legalentity_created = await result.Content.ReadFromJsonAsync<LegalEntity>();
 
-var resut = await client.PutAsJsonAsync<Person>($"{url}/person/edit", p);
+    Console.WriteLine(legalentity_created.Id);
+}
 
-p = await client.GetFromJsonAsync<Person>($"{url}/person/{id}");
 
-Console.WriteLine(p);
 Console.ReadLine();
+
