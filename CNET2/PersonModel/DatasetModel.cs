@@ -1,7 +1,11 @@
-﻿namespace PersonModel;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PersonModel;
 
 public class Person
 {
+    //Datove anotace pro zdurazeni napr. klicu, indexu
+    //[Key]
     public int Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }

@@ -18,6 +18,12 @@ public class PeopleContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options.UseSqlite(@"Data Source=C:\Users\Virtualpro\source\repos\CNET2-SARA\CNET2\people.db");
 
+    //moznost detailni konfigurace db
+    //protected override void OnModelCreating(ModelBuilder modelBuilder)
+    //{
+    //    base.OnModelCreating(modelBuilder);
+    //}
+
     //PM console
     //Install-Package Microsoft.EntityFrameworkCore.Tools
     //set as startup project
