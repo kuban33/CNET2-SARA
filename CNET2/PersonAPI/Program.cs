@@ -17,6 +17,8 @@ app.MapGet("/", () => "Hello" + Environment.NewLine +
 "/person/{id}" + Environment.NewLine +
 "/person/searchemail/{searchstr}");
 
+app.MapGet("/people/all", (PeopleContext db) => db.People);
+
 app.MapGet("/person/{id}", (int id, PeopleContext db) =>
                             db.People.Where(x => x.Id == id).Single());
 

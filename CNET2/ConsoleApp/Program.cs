@@ -1,41 +1,13 @@
-﻿using PersonData;
+﻿using ConsoleApp;
+using ConsoleApp.Logger;
+using PersonData;
 using PersonModel;
 using System.Net.Http.Json;
 
-var url = "https://localhost:7036";
+ISimpleLogger logger = new SimpleConsoleLogger();
 
-var client = new HttpClient();
+var data = await PersonApiCall.GetPeople(logger);
 
-List<LegalEntity> legalEntities = new()
-{
-    new LegalEntity()
-    {
-        Id = 0,
-        Name = "Industry",
-        RegistrationNumber = 788776,
-    },
-    new LegalEntity()
-    {
-        Id = 0,
-        Name = "Enterprise",
-        RegistrationNumber = 832873,
-    },
-    new LegalEntity()
-    {
-        Id = 0,
-        Name = "Technology",
-        RegistrationNumber = 324321421,
-    },
-};
-
-foreach (var entity in legalEntities)
-{
-    var result = await client.PostAsJsonAsync<LegalEntity>($"{url}/legalentity/create", entity);
-    var legalentity_created = await result.Content.ReadFromJsonAsync<LegalEntity>();
-
-    Console.WriteLine(legalentity_created.Id);
-}
-
+Console.WriteLine($"pocet osob: {data.Count()}");
 
 Console.ReadLine();
-
