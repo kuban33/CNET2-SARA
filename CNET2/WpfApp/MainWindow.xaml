@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Call Sync" x:Name="btnCallSync" FontSize="24"
+                        Width="150" Height="35" Click="btnCallSync_Click" />
+            </StackPanel>
+
+            <TextBlock x:Name="txbInfo" HorizontalAlignment="Stretch"
+                       TextWrapping="Wrap"
+                       Height="50"  Text="TextBlock" VerticalAlignment="Top"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
