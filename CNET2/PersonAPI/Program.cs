@@ -17,6 +17,8 @@ app.MapGet("/", () => "Hello" + Environment.NewLine +
 "/person/{id}" + Environment.NewLine +
 "/person/searchemail/{searchstr}");
 
+app.MapGet("/people/count", (PeopleContext db) => db.People.Count());
+
 app.MapGet("/people/all", (PeopleContext db) =>
 {
     Thread.Sleep(5000);

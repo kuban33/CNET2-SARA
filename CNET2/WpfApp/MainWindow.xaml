@@ -11,11 +11,23 @@
             <StackPanel Orientation="Horizontal">
                 <Button Content="Call Sync" x:Name="btnCallSync" FontSize="24"
                         Width="150" Height="35" Click="btnCallSync_Click" />
+                <Button Content="Call Async" x:Name="btnCallASync" FontSize="24" Margin="5"
+                        Width="150" Height="35" Click="btnCallAsync_Click" />
+                <Button Content="Call with progress" x:Name="btnCallProgress" FontSize="24" Margin="5"
+                        Width="210" Height="35" Click="btnCallProgress_Click" />
             </StackPanel>
 
             <TextBlock x:Name="txbInfo" HorizontalAlignment="Stretch"
                        TextWrapping="Wrap"
                        Height="50"  Text="TextBlock" VerticalAlignment="Top"/>
+
+            <ProgressBar x:Name="progress1" Height="30" HorizontalAlignment="Stretch"
+                         Foreground="GreenYellow" />
+
+            <TextBox x:Name="txtArea" HorizontalAlignment="Stretch"                       
+                     Height="300" FontSize="24"  Text="TextBlock" VerticalAlignment="Top"
+                     Background="LightGray"
+                     AcceptsReturn="True"/>
         </StackPanel>
 
     </Grid>
